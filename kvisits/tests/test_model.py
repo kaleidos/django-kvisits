@@ -1,5 +1,6 @@
 import unittest
 from django.test.client import Client
+from django.test.utils import override_settings
 from .models import TestModel
 
 class VisitObjectTest(unittest.TestCase):
@@ -15,5 +16,5 @@ class VisitObjectTest(unittest.TestCase):
         self.test1 = TestModel.objects.get(pk=self.test1.pk)
         self.assertEqual(self.test1.visits, 1)
 
-class VisitRequestTest(unittest.TestCase):
+class VisitUrlTest(unittest.TestCase):
     pass

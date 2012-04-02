@@ -1,4 +1,4 @@
-class UniqHandler(object):
+class UniqHandlerBase(object):
     def check(self, hash):
         raise NotImplementedError
 

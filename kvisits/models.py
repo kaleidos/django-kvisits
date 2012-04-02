@@ -14,7 +14,7 @@ class KVisitableMixin(models.Model):
     # Object representation in format (App, Model, PK)
     def _amp(self):
         return (
-            unicode(self.Meta.app_name),
+            unicode(self._meta.app_label),
             unicode(self.__class__.__name__),
             unicode(self.pk)
         )

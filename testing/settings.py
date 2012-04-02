@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kvisits',
     'kvisits.tests',
+    'kvisits.loghandlers.dbloghandler',
+    'kvisits.uniqhandlers.dbuniqhandler',
 ]
 
 LANGUAGE_CODE = 'en'
@@ -44,3 +46,6 @@ SITE_ID = 1
 TEMPLATE_DIRS = [os.path.join(os.path.dirname(__file__), 'templates')]
 
 USE_I18N = True
+
+KVISITS_IGNORE_USER_AGENTS = [ 'test us.*' ]
+KVISITS_MIN_TIME_BETWEEN_VISITS = 1

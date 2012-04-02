@@ -1,4 +1,6 @@
-class NoLogHandler(object):
+from .loghandlerbase import LogHandlerBase
+
+class NoLogHandler(LogHandlerBase):
     def log_object(self, amp, is_new, request, *args):
         pass
 

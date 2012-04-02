@@ -1,4 +1,6 @@
-class NoUniqHandler(object):
+from .uniqhandlerbase import UniqHandlerBase
+
+class NoUniqHandler(UniqHandlerBase):
     def check(self, hash):
         return True
 
