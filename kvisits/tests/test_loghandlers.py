@@ -13,10 +13,10 @@ class NoLogHandlerTest(unittest.TestCase):
         self.logger = NoLogHandler()
 
     def test_log_object(self):
-        self.logger.log_object(self.test1._amp(), True, HttpRequest(), 1, 2, 3)
+        self.logger.log_object(self.test1._amp(), True, HttpRequest(), data1=1, data2=2, data3=3)
 
     def test_log_url(self):
-        self.logger.log_url('/visit/%d/' % (self.test1.pk), True, HttpRequest(), 1, 2, 3)
+        self.logger.log_url('/visit/%d/' % (self.test1.pk), True, HttpRequest(), data1=1, data2=2, data3=3)
 
 
 class DBLogHandlerTest(unittest.TestCase):
@@ -40,10 +40,10 @@ class DBLogHandlerTest(unittest.TestCase):
         self.assertEqual(LogObject.objects.count(), 0)
         self.assertEqual(LogUrl.objects.count(), 0)
 
-        self.logger.log_object(self.test1._amp(), True, self.user_request, 1, 2, 3)
+        self.logger.log_object(self.test1._amp(), True, self.user_request, data1=1, data2=2, data3=3)
         self.assertEqual(LogObject.objects.count(), 1)
 
-        self.logger.log_object(self.test1._amp(), True, self.anon_request, 1, 2, 3)
+        self.logger.log_object(self.test1._amp(), True, self.anon_request, data1=1, data2=2, data3=3)
         self.assertEqual(LogObject.objects.count(), 2)
 
         self.assertEqual(LogObject.objects.count(), 2)
@@ -53,10 +53,10 @@ class DBLogHandlerTest(unittest.TestCase):
         self.assertEqual(LogObject.objects.count(), 0)
         self.assertEqual(LogUrl.objects.count(), 0)
 
-        self.logger.log_url('/visit/%d/' % (self.test1.pk), True, self.user_request, 1, 2, 3)
+        self.logger.log_url('/visit/%d/' % (self.test1.pk), True, self.user_request, data1=1, data2=2, data3=3)
         self.assertEqual(LogUrl.objects.count(), 1)
 
-        self.logger.log_url('/visit/%d/' % (self.test1.pk), True, self.anon_request, 1, 2, 3)
+        self.logger.log_url('/visit/%d/' % (self.test1.pk), True, self.anon_request, data1=1, data2=2, data3=3)
         self.assertEqual(LogUrl.objects.count(), 2)
 
         self.assertEqual(LogObject.objects.count(), 0)

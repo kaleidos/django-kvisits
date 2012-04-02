@@ -37,6 +37,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'kvisits.middleware.KVisitsMiddleware',
 ]
 
 ROOT_URLCONF = 'testing.urls'
@@ -49,3 +50,6 @@ USE_I18N = True
 
 KVISITS_IGNORE_USER_AGENTS = [ 'test us.*' ]
 KVISITS_MIN_TIME_BETWEEN_VISITS = 1
+KVISITS_LOG_HANDLERS = ['kvisits.loghandlers.nologhandler.NoLogHandler', 'kvisits.loghandlers.nologhandler.NoLogHandler']
+KVISITS_IGNORE_HANDLERS = ['kvisits.ignorehandlers.noignorehandler.NoIgnoreHandler', 'kvisits.ignorehandlers.noignorehandler.NoIgnoreHandler']
+KVISITS_IGNORE_URLS = [ '/ignore.*' ]

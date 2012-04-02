@@ -1,8 +1,10 @@
 from kvisits import settings
 from django.utils.importlib import import_module
 
-__all__ = ('loghandler')
+__all__ = ('loghandlers',)
 
-module_name = ".".join(settings.KVISITS_LOG_HANDLER.split(".")[0:-1])
-class_name = settings.KVISITS_LOG_HANDLER.split(".")[-1]
-loghandler = getattr(import_module(module_name), class_name)()
+loghandlers = []
+for log_handler_conf in settings.KVISITS_LOG_HANDLERS:
+    module_name = ".".join(log_handler_conf.split(".")[0:-1])
+    class_name = log_handler_conf.split(".")[-1]
+    loghandlers.append(getattr(import_module(module_name), class_name)())

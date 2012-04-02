@@ -1,3 +1,3 @@
 class IgnoreHandlerBase(object):
-    def check(self, request, *args):
+    def check(self, request, **kwargs):
         raise NotImplementedError

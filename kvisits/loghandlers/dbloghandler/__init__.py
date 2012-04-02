@@ -4,7 +4,7 @@ import datetime
 import simplejson
 
 class DBLogHandler(LogHandlerBase):
-    def log_object(self, amp, is_new, request, *args):
+    def log_object(self, amp, is_new, request, **kwargs):
         log = LogObject()
         log.request_meta = simplejson.dumps(request.META)
         if request.user.is_anonymous():
@@ -17,7 +17,7 @@ class DBLogHandler(LogHandlerBase):
         log.datetime = datetime.datetime.now()
         log.save()
 
-    def log_url(self, url, is_new, request, *args):
+    def log_url(self, url, is_new, request, **kwargs):
         log = LogUrl()
         log.request_meta = simplejson.dumps(request.META)
         if request.user.is_anonymous():
