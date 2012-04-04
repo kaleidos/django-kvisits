@@ -4,16 +4,14 @@ import datetime
 import simplejson
 
 class DBLogHandler(LogHandlerBase):
-    def log_object(self, amp, is_new, request, **kwargs):
+    def log_object(self, obj, is_new, request, **kwargs):
         log = LogObject()
         log.request_meta = simplejson.dumps(request.META)
         if request.user.is_anonymous():
             log.user = None
         else:
             log.user = request.user
-        log.app_name = amp[0]
-        log.class_name = amp[1]
-        log.obj_pk = amp[2]
+        log.content_object = obj
         log.datetime = datetime.datetime.now()
         log.save()
 

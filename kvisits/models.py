@@ -23,7 +23,7 @@ class UrlVisitManager(models.Manager):
 
         if settings.KVISITS_LOG_ENABLED:
             for loghandler in loghandlers:
-                loghandler.log_object(self._amp(), is_new, request, url=url, **kwargs)
+                loghandler.log_object(self, is_new, request, url=url, **kwargs)
 
 class UrlVisit(models.Model):
     url = models.CharField(max_length=200, unique=True)
@@ -38,13 +38,6 @@ class KVisitableMixin(models.Model):
         abstract = True
 
     # Object representation in format (App, Model, PK)
-    def _amp(self):
-        return (
-            unicode(self._meta.app_label),
-            unicode(self.__class__.__name__),
-            unicode(self.pk)
-        )
-
     def add_visit(self, request, **kwargs):
         hash=gen_hash(request, **kwargs)
         is_new = uniqhandler.check(hash)
@@ -61,4 +54,4 @@ class KVisitableMixin(models.Model):
 
         if settings.KVISITS_LOG_ENABLED:
             for loghandler in loghandlers:
-                loghandler.log_object(self._amp(), is_new, request, **kwargs)
+                loghandler.log_object(self, is_new, request, **kwargs)
