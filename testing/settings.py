@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'kvisits.tests',
     'kvisits.loghandlers.dbloghandler',
     'kvisits.uniqhandlers.dbuniqhandler',
+    'kvisits.counterhandlers.dbcounterhandler',
 ]
 
 LANGUAGE_CODE = 'en'
@@ -52,4 +53,6 @@ KVISITS_IGNORE_USER_AGENTS = [ 'test us.*' ]
 KVISITS_MIN_TIME_BETWEEN_VISITS = 1
 KVISITS_LOG_HANDLERS = ['kvisits.loghandlers.nologhandler.NoLogHandler', 'kvisits.loghandlers.nologhandler.NoLogHandler']
 KVISITS_IGNORE_HANDLERS = ['kvisits.ignorehandlers.noignorehandler.NoIgnoreHandler', 'kvisits.ignorehandlers.noignorehandler.NoIgnoreHandler']
+KVISITS_UNIQ_HANDLER = 'kvisits.uniqhandlers.dbuniqhandler.DBUniqHandler'
+KVISITS_COUNTER_HANDLER = 'kvisits.counterhandlers.dbcounterhandler.DBCounterHandler'
 KVISITS_IGNORE_URLS = [ '/ignore.*' ]

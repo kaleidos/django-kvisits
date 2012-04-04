@@ -4,9 +4,9 @@ from ... import settings
 import datetime
 
 class DBUniqHandler(UniqHandlerBase):
-    def check(self, hash):
+    def check(self, visit_hash):
         try:
-            hash_obj = DBUniqHandlerHashes.objects.get(hash=hash)
+            hash_obj = DBUniqHandlerHashes.objects.get(visit_hash=visit_hash)
             min_time = datetime.timedelta(seconds=settings.KVISITS_MIN_TIME_BETWEEN_VISITS)
             if (datetime.datetime.now()-min_time) > hash_obj.last_counted_visit:
                 hash_obj.last_counted_visit = datetime.datetime.now()
@@ -15,7 +15,7 @@ class DBUniqHandler(UniqHandlerBase):
             else:
                 return False
         except DBUniqHandlerHashes.DoesNotExist:
-            DBUniqHandlerHashes(hash, datetime.datetime.now()).save()
+            DBUniqHandlerHashes(visit_hash, datetime.datetime.now()).save()
             return True
 
     def cleanup(self):

@@ -4,6 +4,7 @@ from django.utils.importlib import import_module
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
+
 class LogObject(models.Model):
     request_meta = models.TextField()
     user = models.ForeignKey(User, related_name='visited_objects', null=True, blank=True)

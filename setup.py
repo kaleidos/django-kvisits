@@ -2,17 +2,17 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
-import modelsubscription
+import kvisits
 
 setup(
-    name = 'django-modelsubscription',
-    version = ":versiontools:modelsubscription:",
-    description = "Generic model mixin for user or email subscription to objects",
+    name = 'django-kvisits',
+    version = ":versiontools:kvisits:",
+    description = "Visit counter for model objects and urls",
     long_description = "",
-    keywords = 'django, model',
+    keywords = 'django, visit, counter',
     author = 'Jesús Espino García',
     author_email = 'jespinog@gmail.com',
-    url = 'https://github.com/kaleidos/django-modelsubscription',
+    url = 'https://github.com/kaleidos/django-kvisits',
     license = 'BSD',
     include_package_data = True,
     packages = find_packages(),
