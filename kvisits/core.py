@@ -1,5 +1,5 @@
 from . import settings
-from .utils import gen_hash
+from .hashhandlers import hashhandler
 from .uniqhandlers import uniqhandler
 from .ignorehandlers import ignorehandlers
 from .loghandlers import loghandlers
@@ -8,7 +8,7 @@ from django.contrib.contenttypes.models import ContentType
 
 
 def add_url_visit(request, url, **kwargs):
-    visit_hash=gen_hash(request, url=url, **kwargs)
+    visit_hash=hashhandler.gen_hash(request, url=url, **kwargs)
     is_new = uniqhandler.check(visit_hash)
     is_ignored = False
     
@@ -26,7 +26,7 @@ def add_url_visit(request, url, **kwargs):
 
 def add_obj_visit(request, obj, **kwargs):
     obj_content_type = ContentType.objects.get_for_model(obj)
-    visit_hash=gen_hash(
+    visit_hash=hashhandler.gen_hash(
             request,
             app_label=obj_content_type.app_label,
             model=obj_content_type.model,
