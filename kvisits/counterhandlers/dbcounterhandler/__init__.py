@@ -2,12 +2,12 @@ from ..counterhandlerbase import CounterHandlerBase
 from .models import *
 
 class DBCounterHandler(CounterHandlerBase):
-    def add_url_visit(self, request, url, **kwargs):
+    def add_url_visit(self, request, url, visit_hash, **kwargs):
         (url_visit_counter, created) = UrlVisit.objects.get_or_create(url=url)
         url_visit_counter.visits += 1
         url_visit_counter.save()
 
-    def add_obj_visit(self, request, obj, **kwargs):
+    def add_obj_visit(self, request, obj, visit_hash, **kwargs):
         if isinstance(obj, KVisitableMixin):
             obj.visits += 1
             obj.save()

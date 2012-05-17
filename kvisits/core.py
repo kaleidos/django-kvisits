@@ -18,7 +18,7 @@ def add_url_visit(request, url, **kwargs):
             break
     
     if is_new and not is_ignored:
-        counterhandler.add_url_visit(request, url, **kwargs)
+        counterhandler.add_url_visit(request, url, visit_hash, **kwargs)
     
     if settings.KVISITS_LOG_ENABLED:
         for loghandler in loghandlers:
@@ -42,7 +42,7 @@ def add_obj_visit(request, obj, **kwargs):
             break
 
     if is_new and not is_ignored:
-        counterhandler.add_obj_visit(request, obj, **kwargs)
+        counterhandler.add_obj_visit(request, obj, visit_hash, **kwargs)
 
     if settings.KVISITS_LOG_ENABLED:
         for loghandler in loghandlers:

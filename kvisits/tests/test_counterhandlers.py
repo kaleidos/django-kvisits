@@ -31,22 +31,22 @@ class NoCounterHandlerTest(unittest.TestCase):
 
     def test_add_url_visit(self):
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 0)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 0)
 
     def test_add_obj_visit(self):
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 0)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 0)
 
     def test_get_url_visits(self):
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 0)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 0)
 
     def test_get_obj_visits(self):
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 0)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 0)
 
 class DBCounterHandlerTest(unittest.TestCase):
@@ -80,52 +80,52 @@ class DBCounterHandlerTest(unittest.TestCase):
 
     def test_add_url_visit(self):
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 0)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 1)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 2)
 
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit2/%d/" % self.test2.pk), 0)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit2/%d/" % self.test2.pk), 1)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit2/%d/" % self.test2.pk), 2)
 
     def test_add_obj_visit(self):
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 0)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 1)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 2)
 
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test2), 0)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test2), 1)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test2), 2)
 
     def test_get_url_visits(self):
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 0)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 1)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit/%d/" % self.test1.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit/%d/" % self.test1.pk), 2)
 
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit2/%d/" % self.test2.pk), 0)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit2/%d/" % self.test2.pk), 1)
-        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk), None)
+        self.assertEqual(self.handler.add_url_visit(self.request, "/visit2/%d/" % self.test2.pk, 'xxx'), None)
         self.assertEqual(self.handler.get_url_visits(self.request, "/visit2/%d/" % self.test2.pk), 2)
 
     def test_get_obj_visits(self):
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 0)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 1)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test1, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test1), 2)
 
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test2), 0)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test2), 1)
-        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2), None)
+        self.assertEqual(self.handler.add_obj_visit(self.request, self.test2, 'xxx'), None)
         self.assertEqual(self.handler.get_obj_visits(self.request, self.test2), 2)

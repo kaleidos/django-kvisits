@@ -1,8 +1,8 @@
 class CounterHandlerBase(object):
-    def add_url_visit(self, request, url, **kwargs):
+    def add_url_visit(self, request, url, visit_hash, **kwargs):
         raise NotImplementedError
 
-    def add_obj_visit(self, request, obj, **kwargs):
+    def add_obj_visit(self, request, obj, visit_hash, **kwargs):
         raise NotImplementedError
 
     def get_url_visits(self, request, url, **kwargs):
