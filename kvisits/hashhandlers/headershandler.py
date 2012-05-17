@@ -1,13 +1,12 @@
-from .hashhandlerbase import HashHandlerBase
-import hashlib
+from .hashhandlerbase import Sha1HashHandler
 from .. import settings
 
-class HeadersHandler(HashHandlerBase):
-    def gen_hash(self, request, **kwargs):
-        h = hashlib.sha1()
+class HeadersHandler(Sha1HashHandler):
+    def get_hash_items(self, request, **kwargs):
+        items = []
         for request_field in settings.KVISITS_REQUEST_FIELDS_FOR_HASH:
-            h.update(request.META.get(request_field, ''))
+            items.append(request.META.get(request_field, ''))
         for arg in kwargs.values():
-            h.update(str(arg))
-        return h.hexdigest()
+            items.append(str(arg))
+        return items
 
