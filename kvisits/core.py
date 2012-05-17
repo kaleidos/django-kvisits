@@ -30,7 +30,7 @@ def add_obj_visit(request, obj, **kwargs):
             request,
             app_label=obj_content_type.app_label,
             model=obj_content_type.model,
-            pk=obj.pk,
+            pk=str(obj.pk),
             **kwargs
     )
     is_new = uniqhandler.check(visit_hash)
