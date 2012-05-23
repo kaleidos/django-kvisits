@@ -1,15 +1,3 @@
-core.py
-counterhandlers
-hashhandlers
-ignorehandlers
-__init__.py
-loghandlers
-middleware.py
-models.py
-settings.py
-tests
-uniqhandlers
-
 KVisits Core
 ------------
 .. automodule:: kvisits.core
@@ -31,7 +19,7 @@ HashHandlers
 .. automodule:: kvisits.hashhandlers.hashhandlerbase
     :members:
 
-.. automodule:: kvisits.hashhandlers.headershandler
+.. automodule:: kvisits.hashhandlers.headershashhandler
     :members:
 
 IgnoreHandlers

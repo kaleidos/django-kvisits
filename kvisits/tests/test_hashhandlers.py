@@ -1,11 +1,11 @@
 import unittest
 from django.http import HttpRequest
 from django.test.utils import override_settings
-from kvisits.hashhandlers.headershandler import HeadersHandler
+from kvisits.hashhandlers.headershashhandler import HeadersHashHandler
 
-class HeadersHandlerTest(unittest.TestCase):
+class HeadersHashHandlerTest(unittest.TestCase):
     def setUp(self):
-        self.handler = HeadersHandler()
+        self.handler = HeadersHashHandler()
         self.request = HttpRequest()
         self.request.META = {
             'CONTENT_LENGTH': '',
