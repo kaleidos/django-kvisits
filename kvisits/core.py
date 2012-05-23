@@ -8,6 +8,7 @@ from django.contrib.contenttypes.models import ContentType
 
 
 def add_url_visit(request, url, **kwargs):
+    '''Add a visit to an url'''
     visit_hash=hashhandler.gen_hash(request, url=url, **kwargs)
     is_new = uniqhandler.check(visit_hash)
     is_ignored = False
@@ -25,6 +26,7 @@ def add_url_visit(request, url, **kwargs):
             loghandler.log_url(url, is_new, request, url=url, **kwargs)
 
 def add_obj_visit(request, obj, **kwargs):
+    '''Add a visit to an object'''
     obj_content_type = ContentType.objects.get_for_model(obj)
     visit_hash=hashhandler.gen_hash(
             request,

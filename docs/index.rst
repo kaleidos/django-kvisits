@@ -76,12 +76,7 @@ There are a couple of editable settings
     :type: list
     
     List of regular expresions to be ignored by the urlignorehandler if is enabled.
-    
- = getattr(
-        settings,
-        'KVISITS_IGNORE_USER_AGENTS',
         
-)
 .. attribute:: KVISITS_IGNORE_USER_AGENTS
     
     :Default: `["Teoma.*", "alexa.*", "froogle.*", "Gigabot.*", "inktomi.*", "looksmart.*", "URL_Spider_SQL.*", "Firefly", "NationalDirectory.*", "Ask Jeeves.*", "TECNOSEEK.*", "InfoSeek.*", "WebFindBot.*", "girafabot.*", "crawler.*", "www.galaxy.com.*", "Googlebot.*", "Googlebot/2.1.*", "Google.*", "Webmaster.*", "Scooter.*", "James Bond.*", "Slurp.*", "msnbot.*", "appie.*", "FAST.*", "WebBug.*", "Spade.*", "ZyBorg.*", "rabaz.*", "Baiduspider.*", "Feedfetcher-Google.*", "TechnoratiSnoop.*", "Rankivabot.*", "Mediapartners-Google.*", "Sogou web spider.*", "WebAlta Crawler.*", "MJ12bot.*", "Yandex/.*", "YaDirectBot.*", "StackRambler.*", "DotBot.*", "dotbot.*"]`

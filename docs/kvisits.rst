@@ -3,6 +3,11 @@ KVisits Core
 .. automodule:: kvisits.core
     :members:
 
+KVisitsMiddleware
+-----------------
+.. automodule:: kvisits.middleware
+    :members:
+
 CounterHandlers
 ---------------
 .. automodule:: kvisits.counterhandlers.counterhandlerbase
