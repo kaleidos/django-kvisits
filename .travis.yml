@@ -5,6 +5,7 @@ python:
 install:
   - pip install -e . --use-mirrors
   - pip install django --use-mirrors
+  - pip install simplejson --use-mirrors
   - pip install coveralls --use-mirrors
 script:
   - coverage run --source=kvisits runtests.py
